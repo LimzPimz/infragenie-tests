@@ -1,12 +1,12 @@
 name: 'Infragenie'
 description: 'Commit and push to the repository the changes made to the architecture of the system in a diagram'
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  text:
+    description: 'Name'
     required: true
-    default: '1000'
+    default: 'World 2'
 outputs:
-  time: # id of output
+  greeting:
     description: 'The time we greeted you'
 runs:
   using: 'node20'

@@ -9,18 +9,10 @@ import { wait } from './wait';
  */
 export async function run(): Promise<void> {
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(github.context.payload.toString())
-
-    // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
-    core.debug(`Waiting ${ms} milliseconds ...`)
-
-    // Log the current timestamp, wait, then log the new timestamp
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
-
-    core.setOutput('time', new Date().toTimeString())
+      const text = core.getInput('text');
+      core.debug(`Hello ${text}`);
+      core.debug(github.context.payload.toString());
+      core.setOutput('greeting', `Hello ${text}`);
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
   }
